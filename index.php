@@ -1,22 +1,43 @@
 <?php
-// Check if the form was submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    // Send the email
-    $to = "alyaarihazem@gmail.com";
-    $headers = "From: $email";
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Email sent successfully!";
-    } else {
-        echo "Error sending email.";
+require 'vendor/autoload.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email format");
+    }
+
+    $mail = new PHPMailer(true);
+    try {
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.example.com'; // Set the SMTP server to send through
+        $mail->SMTPAuth = true;
+        $mail->Username = 'your_email@example.com'; // SMTP username
+        $mail->Password = 'your_password'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        //Recipients
+        $mail->setFrom($email, $name);
+        $mail->addAddress('alyaarihazem@gmail.com');
+
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = nl2br($message);
+
+        $mail->send();
+        echo "Message has been sent successfully!";
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
-
-// Include the HTML form
-include_once("index.html");
 ?>

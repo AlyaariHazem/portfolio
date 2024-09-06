@@ -1,8 +1,13 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
+
+// Load environment variables from .env file
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -18,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.example.com'; // Set the SMTP server to send through
+        $mail->Host = 'smtp.gmail.com'; // Set the Gmail SMTP server to send through
         $mail->SMTPAuth = true;
-        $mail->Username = 'your_email@example.com'; // SMTP username
-        $mail->Password = 'your_password'; // SMTP password
+        $mail->Username = $_ENV['SMTP_USER']; // Your Gmail address from environment variable
+        $mail->Password = $_ENV['SMTP_PASS']; // Your Gmail password or App Password from environment variable
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         //Recipients
         $mail->setFrom($email, $name);
-        $mail->addAddress('alyaarihazem@gmail.com');
+        $mail->addAddress('alyaarihazem@gmail.com'); // Recipient email address
 
         //Content
         $mail->isHTML(true);

@@ -12,7 +12,13 @@ a {
   
   color: #149ddd;
 }
-
+#FirstLI{
+  padding:15px 0;
+  line-height: 1.6rem;
+}
+li{
+  padding: 5px;
+}
 a:hover {
   color: #37b3ed;
   text-decoration: none;

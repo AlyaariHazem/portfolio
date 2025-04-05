@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->addReplyTo($email, $name);
 
         // 6. Add Recipient
-        $mail->addAddress('alyaarihazem@gmail.com');
+        $mail->addAddress('alyaarihazem@gmail.com'); 
 
         // 7. Email Content
         $mail->isHTML(true);

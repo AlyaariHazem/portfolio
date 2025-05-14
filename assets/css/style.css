@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/hero-bg-l.jpg") top center;
   background-size: cover;
   background-repeat: no-repeat;  
   background-position: 0% 0%;
@@ -229,12 +229,6 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 1;
-}
-
-#hero .hero-container {
-  /* position: relative; */
-  /* z-index: 2; */
-  /* min-width: 300px; */
 }
 
 #hero h1 {
@@ -278,13 +272,12 @@ h1, h2, h3, h4, h5, h6 {
     bottom:2px;
   }
 #hero{
-  width: 100%;
-  height: 100vh!important;
-  background: url("../img/hero-for-Phone.jpg") top right!important;
+  width: 101%;
+  height: 100vh !important;
+  background: url(../img/hero-bg-s.jpg);
   background-size: cover;
-  background-repeat: no-repeat;  
-  background-position: 0% 0%;
-  z-index: 11;
+  background-repeat: no-repeat;
+  background-position: 99% 0%;
   }
   #hero h2 {
     font-size: 18px;

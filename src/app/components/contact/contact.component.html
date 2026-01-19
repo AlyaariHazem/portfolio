@@ -57,39 +57,21 @@
             <p>Fill out the form below and I'll get back to you as soon as possible</p>
           </div>
           <form (ngSubmit)="onSubmit($event)" class="php-email-form contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="name">
-                  <i class="bx bx-user"></i> Your Name
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-wrapper">
-                  <input type="text" name="name" class="form-control" id="name" 
-                    placeholder="Enter your full name" required 
-                    [(ngModel)]="formData.name" />
-                  <span class="input-icon">
-                    <i class="bx bx-check-circle valid-icon"></i>
-                    <i class="bx bx-x-circle invalid-icon"></i>
-                  </span>
-                </div>
-                <div class="validate"></div>
+            <div class="form-group">
+              <label for="name">
+                <i class="bx bx-user"></i> Your Name
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" name="name" class="form-control" id="name" 
+                  placeholder="Enter your full name" required 
+                  [(ngModel)]="formData.name" />
+                <span class="input-icon">
+                  <i class="bx bx-check-circle valid-icon"></i>
+                  <i class="bx bx-x-circle invalid-icon"></i>
+                </span>
               </div>
-              <div class="form-group col-md-6">
-                <label for="email">
-                  <i class="bx bx-envelope"></i> Your Email
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-wrapper">
-                  <input type="email" class="form-control" name="email" id="email"
-                    placeholder="your.email@example.com" required 
-                    [(ngModel)]="formData.email" />
-                  <span class="input-icon">
-                    <i class="bx bx-check-circle valid-icon"></i>
-                    <i class="bx bx-x-circle invalid-icon"></i>
-                  </span>
-                </div>
-                <div class="validate"></div>
-              </div>
+              <div class="validate"></div>
             </div>
             <div class="form-group">
               <label for="subject">
@@ -129,11 +111,18 @@
               </div>
               <div class="error-message" [class.show]="showError">
                 <i class="bx bx-error-circle"></i>
-                <span>Error sending message. Please try again.</span>
+                <span>{{ errorMessage || 'Error sending message. Please try again.' }}</span>
               </div>
               <div class="sent-message" [class.show]="showSuccess">
-                <i class="bx bx-check-circle"></i>
-                <span>Your message has been sent successfully! I'll get back to you soon.</span>
+                <div class="success-content">
+                  <i class="bx bx-check-circle"></i>
+                  <p><strong>Thank you for your message!</strong></p>
+                  <p>Please allow access to your email to send this message directly to me.</p>
+                  <a [href]="mailtoLink" class="email-link-btn" target="_blank">
+                  <span>Open Email Client</span>
+                  </a>
+                  <p class="success-note">Your message has been saved. Click the button above to send it via your email.</p>
+                </div>
               </div>
             </div>
             <div class="recaptcha-wrapper">

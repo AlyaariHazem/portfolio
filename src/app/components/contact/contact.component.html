@@ -1,0 +1,160 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Discuss my projects or just want to say hi? My inbox is open for all.</p>
+    </div>
+
+    <div class="row" data-aos="fade-in">
+      <div class="col-lg-5 d-flex align-items-stretch">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-map"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <p>Yemen, Sana'a, Alhaymah Aldakliah, Alyaar</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p><a href="mailto:alyaarihazem&#64;gmail.com">alyaarihazem&#64;gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p><a href="tel:+967776137120">+967 776 137 120</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-time"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Available</h4>
+              <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+        <div class="contact-form-wrapper">
+          <div class="form-header">
+            <div class="form-header-icon">
+              <i class="bx bx-message-rounded-dots"></i>
+            </div>
+            <h3>Send me a message</h3>
+            <p>Fill out the form below and I'll get back to you as soon as possible</p>
+          </div>
+          <form (ngSubmit)="onSubmit($event)" class="php-email-form contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">
+                  <i class="bx bx-user"></i> Your Name
+                  <span class="required-star">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" name="name" class="form-control" id="name" 
+                    placeholder="Enter your full name" required 
+                    [(ngModel)]="formData.name" />
+                  <span class="input-icon">
+                    <i class="bx bx-check-circle valid-icon"></i>
+                    <i class="bx bx-x-circle invalid-icon"></i>
+                  </span>
+                </div>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">
+                  <i class="bx bx-envelope"></i> Your Email
+                  <span class="required-star">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input type="email" class="form-control" name="email" id="email"
+                    placeholder="your.email@example.com" required 
+                    [(ngModel)]="formData.email" />
+                  <span class="input-icon">
+                    <i class="bx bx-check-circle valid-icon"></i>
+                    <i class="bx bx-x-circle invalid-icon"></i>
+                  </span>
+                </div>
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">
+                <i class="bx bx-message-square-detail"></i> Subject
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" class="form-control" name="subject" id="subject"
+                  placeholder="What's this about?" required 
+                  [(ngModel)]="formData.subject" />
+                <span class="input-icon">
+                  <i class="bx bx-check-circle valid-icon"></i>
+                  <i class="bx bx-x-circle invalid-icon"></i>
+                </span>
+              </div>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">
+                <i class="bx bx-message"></i> Message
+                <span class="required-star">*</span>
+              </label>
+              <div class="textarea-wrapper">
+                <textarea class="form-control" name="message" id="message" rows="6"
+                  placeholder="Tell me about your project, ask a question, or just say hello..." required
+                  [(ngModel)]="formData.message"></textarea>
+                <div class="char-counter">
+                  <span id="charCount">0</span> / 500
+                </div>
+              </div>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading" [class.show]="showLoading">
+                <div class="loading-spinner"></div>
+                <p><b>Submitting form</b> please wait...</p>
+              </div>
+              <div class="error-message" [class.show]="showError">
+                <i class="bx bx-error-circle"></i>
+                <span>Error sending message. Please try again.</span>
+              </div>
+              <div class="sent-message" [class.show]="showSuccess">
+                <i class="bx bx-check-circle"></i>
+                <span>Your message has been sent successfully! I'll get back to you soon.</span>
+              </div>
+            </div>
+            <div class="recaptcha-wrapper">
+              <div class="g-recaptcha" data-sitekey="6Le5xCUiAAAAAIaY5X_Abkbj7G0xnE4vK6vFmQzC"></div>
+            </div>
+            <div class="form-footer">
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">
+                  <i class="bx bx-paper-plane"></i> Send Message
+                </span>
+                <span class="btn-loading">
+                  <i class="bx bx-loader-alt bx-spin"></i> Sending...
+                </span>
+              </button>
+              <p class="form-note">
+                <i class="bx bx-info-circle"></i> All fields marked with <span class="required-star">*</span> are required
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

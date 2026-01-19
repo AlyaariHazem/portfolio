@@ -1,0 +1,123 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Portfolio": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/portfolio",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss",
+              "public/vendor/bootstrap/css/bootstrap.min.css",
+              "public/vendor/icofont/icofont.min.css",
+              "public/vendor/boxicons/css/boxicons.min.css",
+              "public/vendor/venobox/venobox.css",
+              "public/vendor/owl.carousel/assets/owl.carousel.min.css",
+              "public/vendor/aos/aos.css",
+              "public/css/style.css"
+            ],
+            "scripts": [
+              "public/vendor/jquery/jquery.min.js",
+              "public/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "public/vendor/jquery.easing/jquery.easing.min.js",
+              "public/vendor/php-email-form/validate.js",
+              "public/vendor/waypoints/jquery.waypoints.min.js",
+              "public/vendor/counterup/counterup.min.js",
+              "public/vendor/isotope-layout/isotope.pkgd.min.js",
+              "public/vendor/venobox/venobox.min.js",
+              "public/vendor/owl.carousel/owl.carousel.min.js",
+              "public/vendor/typed.js/typed.min.js",
+              "public/vendor/aos/aos.js",
+              "public/js/main.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "Portfolio:build:production"
+            },
+            "development": {
+              "buildTarget": "Portfolio:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}

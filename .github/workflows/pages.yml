@@ -1,50 +1,65 @@
-name: Portfolio Deployment
+name: pages build and deployment
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install
         run: npm ci
 
-      - name: Build Angular application
-        run: npm run build -- --configuration=production
+      - name: Build Angular
+        run: npx ng build --configuration=production --base-href "/portfolio/"
 
-      - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v3
+      - name: Resolve build dir
+        id: out
+        run: |
+          if [ -d dist/portfolio/browser ]; then
+            echo "DIR=dist/portfolio/browser" >> $GITHUB_OUTPUT
+          else
+            echo "DIR=dist/portfolio" >> $GITHUB_OUTPUT
+          fi
+
+      - name: SPA 404
+        run: cp "${{ steps.out.outputs.DIR }}/index.html" "${{ steps.out.outputs.DIR }}/404.html"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: dist/portfolio/browser
+          name: site
+          path: ${{ steps.out.outputs.DIR }}
 
   deploy:
     needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
+          publish_branch: gh-pages
+          enable_jekyll: false

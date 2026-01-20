@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -26,12 +24,10 @@ export class ContactComponent implements OnInit, AfterViewInit {
   errorMessage = '';
   mailtoLink = '';
 
-  private apiUrl = `${environment.apiUrl}/contact/`;
-
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit() {
-    // No EmailJS initialization needed
+    // No initialization needed
   }
 
   ngAfterViewInit() {
@@ -97,43 +93,17 @@ export class ContactComponent implements OnInit, AfterViewInit {
       submitBtn.classList.add('loading');
     }
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    this.http.post<any>(this.apiUrl, this.formData, { headers }).subscribe({
-      next: (response) => {
-        this.showLoading = false;
-        this.showSuccess = true;
-        this.isSubmitting = false;
-        if (submitBtn) {
-          submitBtn.classList.remove('loading');
-        }
-        
-        // Create email link (Gmail for mobile, mailto for desktop)
-        this.mailtoLink = this.createEmailLink();
-        
-        // Don't auto-reset form - let user send email first
-      },
-      error: (error) => {
-        this.showLoading = false;
-        this.showError = true;
-        this.isSubmitting = false;
-        if (submitBtn) {
-          submitBtn.classList.remove('loading');
-        }
-        
-        // Extract error message from response
-        if (error.error && error.error.message) {
-          this.errorMessage = error.error.message;
-        } else if (error.error && error.error.errors) {
-          const errors = error.error.errors;
-          const errorMessages = Object.values(errors).flat();
-          this.errorMessage = errorMessages.join(', ');
-        } else {
-          this.errorMessage = 'Error sending message. Please try again.';
-        }
+    // Simulate network delay for better UX
+    setTimeout(() => {
+      this.showLoading = false;
+      this.showSuccess = true;
+      this.isSubmitting = false;
+      if (submitBtn) {
+        submitBtn.classList.remove('loading');
       }
-    });
+      
+      // Create email link (Gmail for mobile, mailto for desktop)
+      this.mailtoLink = this.createEmailLink();
+    }, 1000);
   }
 }

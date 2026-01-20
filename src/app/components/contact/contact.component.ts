@@ -68,13 +68,8 @@ export class ContactComponent implements OnInit, AfterViewInit {
       `Best regards,\n${this.formData.name}`
     );
 
-    if (this.isMobileDevice()) {
-      // Use Gmail web interface for mobile devices
-      return `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-    } else {
-      // Use mailto for desktop
-      return `mailto:${recipient}?subject=${subject}&body=${body}`;
-    }
+    // Always use mailto for both desktop and mobile to open the default email app
+    return `mailto:${recipient}?subject=${subject}&body=${body}`;
   }
 
   onSubmit(event: Event) {

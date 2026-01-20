@@ -57,6 +57,30 @@ export class ContactComponent implements OnInit, AfterViewInit {
     }
   }
 
+  isMobileDevice(): boolean {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           (window.innerWidth <= 768);
+  }
+
+  createEmailLink(): string {
+    const recipient = 'alyaarihazem@gmail.com';
+    const subject = encodeURIComponent(this.formData.subject);
+    const body = encodeURIComponent(
+      `Hello Hazem,\n\n` +
+      `My name is ${this.formData.name}.\n\n` +
+      `${this.formData.message}\n\n` +
+      `Best regards,\n${this.formData.name}`
+    );
+
+    if (this.isMobileDevice()) {
+      // Use Gmail web interface for mobile devices
+      return `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+    } else {
+      // Use mailto for desktop
+      return `mailto:${recipient}?subject=${subject}&body=${body}`;
+    }
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
     
@@ -86,16 +110,8 @@ export class ContactComponent implements OnInit, AfterViewInit {
           submitBtn.classList.remove('loading');
         }
         
-        // Create mailto link with pre-filled message
-        const recipient = 'alyaarihazem@gmail.com';
-        const subject = encodeURIComponent(this.formData.subject);
-        const body = encodeURIComponent(
-          `Hello Hazem,\n\n` +
-          `My name is ${this.formData.name}.\n\n` +
-          `${this.formData.message}\n\n` +
-          `Best regards,\n${this.formData.name}`
-        );
-        this.mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        // Create email link (Gmail for mobile, mailto for desktop)
+        this.mailtoLink = this.createEmailLink();
         
         // Don't auto-reset form - let user send email first
       },

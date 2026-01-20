@@ -1945,12 +1945,125 @@ section:not(.section-bg) > .container {
   min-width: 300px;
   transform: translateY(0);
   width: fit-content;
-  max-width: 100%;
+  max-width: calc(100% - 40px);
   cursor: pointer;
   z-index: 10;
   white-space: nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
+}
+
+/* Mobile Responsive Styles for Email Button */
+@media screen and (max-width: 768px) {
+  .email-link-btn {
+    padding: 18px 30px !important;
+    font-size: 17px !important;
+    min-width: auto !important;
+    width: calc(100% - 40px) !important;
+    max-width: 100% !important;
+    margin: 24px auto !important;
+    gap: 10px !important;
+    border-width: 3px !important;
+    box-shadow: 
+      0 8px 30px rgba(255, 255, 255, 0.6),
+      0 4px 15px rgba(16, 185, 129, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      0 0 0 3px rgba(255, 255, 255, 0.3),
+      0 6px 20px rgba(16, 185, 129, 0.5) !important;
+  }
+
+  .email-link-btn i {
+    font-size: 24px !important;
+  }
+
+  .email-link-btn span {
+    font-size: 17px !important;
+  }
+
+  .email-link-btn:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+  }
+
+  .contact-form .sent-message {
+    padding: 20px 18px !important;
+    margin: 20px 10px !important;
+    border-radius: 20px !important;
+  }
+
+  .success-content p {
+    font-size: 15px !important;
+    margin: 10px 0 !important;
+    padding: 0 5px;
+  }
+
+  .success-content p strong {
+    font-size: 22px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .contact-form .sent-message i {
+    font-size: 40px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .success-note {
+    font-size: 13px !important;
+    margin-top: 14px !important;
+    padding: 0 8px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .email-link-btn {
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    width: calc(100% - 30px) !important;
+    margin: 20px auto !important;
+    gap: 8px !important;
+    letter-spacing: 0.4px !important;
+    border-width: 3px !important;
+  }
+
+  .email-link-btn i {
+    font-size: 22px !important;
+  }
+
+  .email-link-btn span {
+    font-size: 16px !important;
+  }
+
+  .contact-form .sent-message {
+    padding: 18px 15px !important;
+    margin: 15px 8px !important;
+    border-radius: 18px !important;
+  }
+
+  .success-content {
+    padding: 0 10px;
+  }
+
+  .success-content p {
+    font-size: 14px !important;
+    margin: 8px 0 !important;
+    line-height: 1.7 !important;
+  }
+
+  .success-content p strong {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .contact-form .sent-message i {
+    font-size: 36px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .success-note {
+    font-size: 12px !important;
+    margin-top: 12px !important;
+    padding: 0 5px !important;
+  }
 }
 
 
@@ -2002,6 +2115,62 @@ section:not(.section-bg) > .container {
   flex-shrink: 0;
   overflow: visible;
   text-overflow: clip;
+}
+
+/* Mobile Responsive Styles for Email Button */
+@media screen and (max-width: 768px) {
+  .email-link-btn {
+    padding: 18px 30px !important;
+    font-size: 17px !important;
+    min-width: auto !important;
+    width: calc(100% - 40px) !important;
+    max-width: 100% !important;
+    margin: 24px auto !important;
+    gap: 10px !important;
+    border-width: 3px !important;
+    box-shadow: 
+      0 8px 30px rgba(255, 255, 255, 0.6),
+      0 4px 15px rgba(16, 185, 129, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      0 0 0 3px rgba(255, 255, 255, 0.3),
+      0 6px 20px rgba(16, 185, 129, 0.5) !important;
+  }
+
+  .email-link-btn i {
+    font-size: 24px !important;
+  }
+
+  .email-link-btn span {
+    font-size: 17px !important;
+  }
+
+  .email-link-btn:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .email-link-btn {
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    width: calc(100% - 30px) !important;
+    margin: 20px auto !important;
+    gap: 8px !important;
+    letter-spacing: 0.4px !important;
+    border-width: 3px !important;
+  }
+
+  .email-link-btn i {
+    font-size: 22px !important;
+  }
+
+  .email-link-btn span {
+    font-size: 16px !important;
+  }
+
+  .success-content {
+    padding: 0 10px;
+  }
 }
 
 .success-note {

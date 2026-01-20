@@ -6,48 +6,57 @@
       <p>Discuss my projects or just want to say hi? My inbox is open for all.</p>
     </div>
 
-    <div class="row" data-aos="fade-in">
-      <div class="col-lg-5 d-flex align-items-stretch">
-        <div class="contact-info">
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="bx bx-map"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Location</h4>
-              <p>Yemen, Sana'a, Alhaymah Aldakliah, Alyaar</p>
-            </div>
+    <!-- Contact Information Cards Row -->
+    <div class="row contact-info-row" data-aos="fade-in">
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="bx bx-map"></i>
           </div>
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="bx bx-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Email</h4>
-              <p><a href="mailto:alyaarihazem&#64;gmail.com">alyaarihazem&#64;gmail.com</a></p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="bx bx-phone"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Phone</h4>
-              <p><a href="tel:+967776137120">+967 776 137 120</a></p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">
-              <i class="bx bx-time"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Available</h4>
-              <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-            </div>
+          <div class="contact-details">
+            <h4>Location</h4>
+            <p>Yemen, Sana'a, Alhaymah Aldakliah, Alyaar</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Email</h4>
+            <p><a href="mailto:alyaarihazem&#64;gmail.com">alyaarihazem&#64;gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="bx bx-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Phone</h4>
+            <p><a href="tel:+967776137120">+967 776 137 120</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="bx bx-time"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Available</h4>
+            <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Below -->
+    <div class="row mt-5" data-aos="fade-up">
+      <div class="col-lg-12">
         <div class="contact-form-wrapper">
           <div class="form-header">
             <div class="form-header-icon">
@@ -118,8 +127,8 @@
                   <i class="bx bx-check-circle"></i>
                   <p><strong>Thank you for your message!</strong></p>
                   <p>Please allow access to your email to send this message directly to me.</p>
-                  <a [href]="mailtoLink" class="email-link-btn" target="_blank" rel="noopener noreferrer">
-                    <span>Open Email Client</span>
+                  <a [href]="mailtoLink" class="email-link-btn" target="_blank">
+                  <span>Open Email Client</span>
                   </a>
                   <p class="success-note">Your message has been saved. Click the button above to send it via your email.</p>
                 </div>

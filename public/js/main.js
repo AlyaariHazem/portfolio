@@ -87,8 +87,9 @@
         }
         main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
       }
-      if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first").addClass('active');
+      if (cur_pos < 320) {
+        main_nav.find('li').removeClass('active');
+        main_nav.find('a[href="#hero"]').parent('li').addClass('active');
       }
     });
   });

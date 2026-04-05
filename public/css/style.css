@@ -241,9 +241,24 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/* Theme toggle (light / dark) — light styles only; dark in dark-mode.css */
-.theme-toggle-wrap {
-  width: 100%;
+/* Theme toggle (light / dark) — fixed top-right; dark overrides in dark-mode.css */
+.theme-toggle-wrap.theme-toggle-fixed {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 9996;
+  width: auto;
+  margin: 0;
+  text-align: center;
+  pointer-events: auto;
+}
+
+/* Leave room for the mobile menu button (right: 15px, ~46px wide) */
+@media (max-width: 1199px) {
+  .theme-toggle-wrap.theme-toggle-fixed {
+    right: 72px;
+    top: 15px;
+  }
 }
 
 .theme-toggle {

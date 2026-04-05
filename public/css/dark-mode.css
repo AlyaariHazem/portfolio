@@ -627,6 +627,15 @@ html.dark .char-counter span {
   color: #8ab4d8;
 }
 
+html.dark .recaptcha-wrapper {
+  margin: 25px 0;
+}
+
+html.dark .recaptcha-wrapper .recaptcha-container-inner {
+  display: flex;
+  justify-content: center;
+}
+
 html.dark .submit-btn {
   background: #1a4a6e;
   border-color: #1a4a6e;

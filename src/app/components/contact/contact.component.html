@@ -134,8 +134,8 @@
                 </div>
               </div>
             </div>
-            <div class="recaptcha-wrapper">
-              <div class="g-recaptcha" data-sitekey="6Le5xCUiAAAAAIaY5X_Abkbj7G0xnE4vK6vFmQzC"></div>
+            <div class="recaptcha-wrapper" *ngIf="recaptchaSiteKey">
+              <div id="recaptcha-container" class="recaptcha-container-inner"></div>
             </div>
             <div class="form-footer">
               <button type="submit" class="submit-btn">

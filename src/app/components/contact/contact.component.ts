@@ -1,6 +1,17 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../services/theme.service';
+import { environment } from '../../../environments/environment';
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      render: (container: HTMLElement | string, parameters: { sitekey: string; theme?: 'light' | 'dark' }) => number;
+      reset: (widgetId?: number) => void;
+    };
+  }
+}
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +21,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit, AfterViewInit {
+  /** Exposed for template; empty in production until you set environment.prod.ts */
+  readonly recaptchaSiteKey = environment.recaptchaSiteKey;
+
+  private readonly themeService = inject(ThemeService);
+  private recaptchaWidgetId: number | undefined;
+  private lastRenderedTheme: 'light' | 'dark' | null = null;
+
   formData = {
     name: '',
     subject: '',
@@ -24,7 +42,44 @@ export class ContactComponent implements OnInit, AfterViewInit {
   errorMessage = '';
   mailtoLink = '';
 
-  constructor() {}
+  constructor() {
+    effect(() => {
+      const theme = this.themeService.theme();
+      queueMicrotask(() => this.syncRecaptchaWidget(theme));
+    });
+  }
+
+  private syncRecaptchaWidget(theme: 'light' | 'dark'): void {
+    if (!this.recaptchaSiteKey) {
+      return;
+    }
+    const el = document.getElementById('recaptcha-container');
+    if (!el) {
+      setTimeout(() => this.syncRecaptchaWidget(theme), 50);
+      return;
+    }
+    const grecaptcha = window.grecaptcha;
+    if (!grecaptcha?.render) {
+      setTimeout(() => this.syncRecaptchaWidget(theme), 50);
+      return;
+    }
+    if (this.recaptchaWidgetId !== undefined && this.lastRenderedTheme === theme) {
+      return;
+    }
+    if (this.recaptchaWidgetId !== undefined) {
+      try {
+        grecaptcha.reset(this.recaptchaWidgetId);
+      } catch {
+        /* ignore */
+      }
+    }
+    el.innerHTML = '';
+    this.recaptchaWidgetId = grecaptcha.render(el, {
+      sitekey: this.recaptchaSiteKey,
+      theme: theme === 'dark' ? 'dark' : 'light'
+    });
+    this.lastRenderedTheme = theme;
+  }
 
   ngOnInit() {
     // No initialization needed

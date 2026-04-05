@@ -16,9 +16,10 @@
         if (t === 'dark' || t === 'light') {
           root.setAttribute('data-theme', t);
           root.classList.toggle('dark', t === 'dark');
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          root.setAttribute('data-theme', 'dark');
-          root.classList.add('dark');
+        } else {
+          /* Default before Angular boots: light (no OS theme auto-match). */
+          root.setAttribute('data-theme', 'light');
+          root.classList.remove('dark');
         }
       } catch (e) { /* ignore */ }
     })();
@@ -44,6 +45,6 @@
 
 <body>
   <app-root></app-root>
-<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="scripts-ANCKK5XV.js" defer></script><script src="main-ZS6HHX5W.js" type="module"></script></body>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="scripts-ANCKK5XV.js" defer></script><script src="main-JWUSPZYC.js" type="module"></script></body>
 
 </html>

@@ -1,3 +1,12 @@
+<!-- Theme toggle — fixed top-right (outside sidebar) -->
+<div class="theme-toggle-wrap theme-toggle-fixed">
+  <button type="button" class="theme-toggle" (click)="theme.toggle()"
+    [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+    [attr.title]="theme.isDark() ? 'Light mode' : 'Dark mode'">
+    <i class="bx" [ngClass]="theme.isDark() ? 'bx-sun' : 'bx-moon'"></i>
+  </button>
+</div>
+
 <!-- ======= Mobile nav toggle button ======= -->
 <button type="button" class="mobile-nav-toggle d-xl-none" (click)="toggleMobileMenu()">
   <i class="icofont-navigation-menu"></i>
@@ -24,14 +33,6 @@
           title="View My E-Commerce Website" class="website">
           <i class="bx bx-cart"></i>
         </a>
-      </div>
-
-      <div class="theme-toggle-wrap text-center mt-3">
-        <button type="button" class="theme-toggle" (click)="theme.toggle()"
-          [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
-          [attr.title]="theme.isDark() ? 'Light mode' : 'Dark mode'">
-          <i class="bx" [ngClass]="theme.isDark() ? 'bx-sun' : 'bx-moon'"></i>
-        </button>
       </div>
     </div>
 

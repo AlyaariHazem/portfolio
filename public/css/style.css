@@ -1074,6 +1074,16 @@ section .container {
   color: #1a4a6e;
 }
 
+/* Inline SVG (e.g. desktop monitor) — does not rely on icon webfonts */
+.project-icon.project-icon--svg {
+  color: #1a4a6e;
+}
+
+.project-icon--svg svg {
+  display: block;
+  flex-shrink: 0;
+}
+
 .project-title {
   margin-bottom: 15px;
 }

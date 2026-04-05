@@ -73,20 +73,21 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: linear-gradient(180deg, #eef2f8 0%, #e4ecf4 42%, #dbe4ef 100%);
-  border-right: 1px solid #b8c4d4;
+  /* Aligned with site theme: neutral grays / off-white (same family as #main & cards) */
+  background: linear-gradient(180deg, #fafbfc 0%, #f4f5f7 48%, #eceef2 100%);
+  border-right: 1px solid #d5dae3;
   overflow-y: auto;
   box-shadow:
-    4px 0 32px rgba(18, 45, 72, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    4px 0 28px rgba(20, 35, 55, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 #header .profile img {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 2px solid #b8c6d6;
-  box-shadow: 0 4px 14px rgba(18, 45, 72, 0.08);
+  border: 2px solid #dde1e8;
+  box-shadow: 0 2px 10px rgba(26, 45, 66, 0.07);
 }
 
 #header .profile h1 {
@@ -107,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 #header .profile .social-links a {
   font-size: 22px;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.55);
+  background: #ffffff;
   color: #3a4150;
   line-height: 1;
   padding: 8px 0;
@@ -117,7 +118,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 36px;
   height: 36px;
   transition: 0.3s;
-  border: 1px solid rgba(26, 74, 110, 0.12);
+  border: 1px solid #dde1e8;
+  box-shadow: 0 1px 2px rgba(26, 45, 66, 0.05);
 }
 
 #header .profile .social-links a:hover {
@@ -184,8 +186,8 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   text-decoration: none;
   color: #1c2230;
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(26, 45, 66, 0.06);
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {

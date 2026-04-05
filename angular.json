@@ -42,7 +42,6 @@
             ],
             "scripts": [
               "public/vendor/jquery/jquery.min.js",
-              "public/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "public/vendor/jquery.easing/jquery.easing.min.js",
               "public/vendor/waypoints/jquery.waypoints.min.js",
               "public/vendor/typed.js/typed.min.js",

@@ -37,8 +37,6 @@
               "public/vendor/bootstrap/css/bootstrap.min.css",
               "public/vendor/icofont/icofont.min.css",
               "public/vendor/boxicons/css/boxicons.min.css",
-              "public/vendor/venobox/venobox.css",
-              "public/vendor/owl.carousel/assets/owl.carousel.min.css",
               "public/vendor/aos/aos.css",
               "public/css/style.css"
             ],
@@ -46,12 +44,7 @@
               "public/vendor/jquery/jquery.min.js",
               "public/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "public/vendor/jquery.easing/jquery.easing.min.js",
-              "public/vendor/php-email-form/validate.js",
               "public/vendor/waypoints/jquery.waypoints.min.js",
-              "public/vendor/counterup/counterup.min.js",
-              "public/vendor/isotope-layout/isotope.pkgd.min.js",
-              "public/vendor/venobox/venobox.min.js",
-              "public/vendor/owl.carousel/owl.carousel.min.js",
               "public/vendor/typed.js/typed.min.js",
               "public/vendor/aos/aos.js",
               "public/js/main.js"

@@ -47,7 +47,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
         } else if (currentLength > this.maxChars * 0.9) {
           charCountElement.style.color = '#ffc107';
         } else {
-          charCountElement.style.color = '#149ddd';
+          charCountElement.style.color = '#1a4a6e';
         }
       });
     }

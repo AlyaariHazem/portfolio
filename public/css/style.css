@@ -241,6 +241,38 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+/* Theme toggle (light / dark) — light styles only; dark in dark-mode.css */
+.theme-toggle-wrap {
+  width: 100%;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #dde1e8;
+  background: #ffffff;
+  color: #1a4a6e;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(26, 45, 66, 0.08);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+.theme-toggle i {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
 /*--------------------------------------------------------------
 # Hero Section — light editorial
 --------------------------------------------------------------*/

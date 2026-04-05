@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -27,7 +28,10 @@ declare var AOS: any;
 export class AppComponent implements OnInit {
   title = 'Portfolio';
 
+  constructor(private readonly themeService: ThemeService) {}
+
   ngOnInit() {
+    this.themeService.init();
     // Initialize AOS (Animate On Scroll) after view init
     if (typeof AOS !== 'undefined') {
       AOS.init({

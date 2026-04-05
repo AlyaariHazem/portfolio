@@ -25,6 +25,14 @@
           <i class="bx bx-cart"></i>
         </a>
       </div>
+
+      <div class="theme-toggle-wrap text-center mt-3">
+        <button type="button" class="theme-toggle" (click)="theme.toggle()"
+          [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+          [attr.title]="theme.isDark() ? 'Light mode' : 'Dark mode'">
+          <i class="bx" [ngClass]="theme.isDark() ? 'bx-sun' : 'bx-moon'"></i>
+        </button>
+      </div>
     </div>
 
     <nav class="nav-menu">

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   isMobileMenuOpen = false;
+
+  constructor(readonly theme: ThemeService) {}
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

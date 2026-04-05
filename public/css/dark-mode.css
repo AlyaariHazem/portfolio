@@ -1,0 +1,723 @@
+/* Dark theme — loaded after style.css; only when html.dark */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background: #12161d;
+  color: #e8eaed;
+}
+
+html.dark a {
+  color: #8ab4d8;
+}
+
+html.dark a:hover {
+  color: #c5daf7;
+}
+
+html.dark .back-to-top {
+  background: #1a4a6e;
+  color: #fff;
+}
+
+html.dark .back-to-top:hover {
+  background: #2d5f8a;
+  color: #fff;
+}
+
+/* Sidebar */
+html.dark #header {
+  background: linear-gradient(180deg, #151a22 0%, #12161d 48%, #0e1218 100%);
+  border-right-color: #3c444d;
+  box-shadow:
+    4px 0 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+html.dark #header .profile img {
+  border-color: #4a5568;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+html.dark #header .profile h1 a,
+html.dark #header .profile h1 a:hover {
+  color: #e8eaed;
+}
+
+html.dark #header .profile .social-links a {
+  background: #1a2228;
+  color: #e8eaed;
+  border-color: #3c444d;
+  box-shadow: none;
+}
+
+html.dark #header .profile .social-links a:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark #main {
+  background: #12161d;
+}
+
+html.dark .nav-menu a {
+  color: #9aa0a6;
+}
+
+html.dark .nav-menu a i {
+  color: #7d848d;
+}
+
+html.dark .nav-menu a:hover,
+html.dark .nav-menu .active > a,
+html.dark .nav-menu li:hover > a {
+  color: #e8eaed;
+  background: #252d38;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+html.dark .nav-menu a:hover i,
+html.dark .nav-menu .active > a i,
+html.dark .nav-menu li:hover > a i {
+  color: #8ab4d8;
+}
+
+html.dark .mobile-nav-toggle {
+  background: rgba(26, 34, 40, 0.95);
+  border-color: rgba(138, 180, 216, 0.35);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .mobile-nav-toggle i {
+  color: #8ab4d8;
+}
+
+html.dark .mobile-nav-active .mobile-nav-toggle {
+  background: #1a4a6e;
+  border-color: #1a4a6e;
+}
+
+html.dark .mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
+html.dark .theme-toggle {
+  background: #1a2228;
+  border-color: #3c444d;
+  color: #8ab4d8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .theme-toggle:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+/* Hero */
+html.dark #hero {
+  background-color: #12161d;
+  background-image: linear-gradient(175deg, #1a2228 0%, #151a22 35%, #0e1218 100%);
+}
+
+html.dark #hero::before {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 65% -8%, rgba(138, 180, 216, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 15% 105%, rgba(138, 180, 216, 0.05) 0%, transparent 55%);
+}
+
+html.dark #hero::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  opacity: 0.5;
+}
+
+html.dark #hero .hero-eyebrow {
+  color: #8b9199;
+}
+
+html.dark #hero h1 {
+  color: #e8eaed;
+}
+
+html.dark #hero h1::after {
+  background: linear-gradient(90deg, #5a8fc4 0%, #7eb3ea 60%, #a8cfff 100%);
+}
+
+html.dark #hero .hero-tagline,
+html.dark #hero p {
+  color: #9aa0a6;
+}
+
+html.dark #hero p span.typed {
+  color: #8ab4d8;
+  border-bottom-color: rgba(138, 180, 216, 0.45);
+}
+
+html.dark #hero .typed-cursor {
+  color: #8ab4d8 !important;
+}
+
+html.dark #hero .hero-chip {
+  color: #c4c7cc;
+  background: rgba(26, 34, 40, 0.85);
+  border-color: rgba(138, 180, 216, 0.28);
+}
+
+html.dark #hero .hero-chip:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark #hero .hero-about-block {
+  background: rgba(26, 34, 40, 0.95);
+  border-color: rgba(60, 68, 77, 0.9);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 60px -24px rgba(0, 0, 0, 0.45),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+html.dark #hero .hero-about-block::before {
+  background: linear-gradient(90deg, #5a8fc4, #7eb3ea);
+}
+
+html.dark #hero .hero-intro {
+  color: #c4c7cc;
+}
+
+html.dark #hero .hero-objective {
+  color: #c4c7cc;
+  background: linear-gradient(135deg, #1a2228 0%, #151a22 100%);
+  border-color: #3c444d;
+  border-left-color: #5a8fc4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+html.dark #hero .hero-objective::before {
+  color: rgba(138, 180, 216, 0.25);
+}
+
+html.dark #hero .hero-objective i {
+  color: #8ab4d8;
+}
+
+html.dark #hero .hero-cta-primary {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark #hero .hero-cta-primary:hover {
+  background: #14385a;
+  border-color: #14385a;
+  color: #fff;
+}
+
+html.dark #hero .hero-cta-secondary {
+  background: rgba(26, 34, 40, 0.9);
+  color: #8ab4d8;
+  border-color: rgba(138, 180, 216, 0.35);
+}
+
+html.dark #hero .hero-cta-secondary:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+@media (max-width: 768px) {
+  html.dark #hero .hero-objective {
+    border-top-color: #5a8fc4;
+  }
+}
+
+/* Sections */
+html.dark section {
+  background: #12161d;
+}
+
+html.dark .section-bg {
+  background: #0e1218;
+}
+
+html.dark .section-title h2 {
+  color: #e8eaed;
+}
+
+html.dark .section-title h2::after {
+  background: #5a8fc4;
+}
+
+html.dark .section-title p {
+  color: #9aa0a6;
+}
+
+/* About & tech cards */
+html.dark .about-card {
+  background: #1a2228;
+  border-color: #3c444d;
+  color: #e8eaed;
+  border-left-color: #5a8fc4;
+}
+
+html.dark .about-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Connect With Me — LinkedIn / GitHub row buttons */
+html.dark .social-card .card-header {
+  border-bottom-color: #3c444d;
+}
+
+html.dark .social-card .card-header i {
+  color: #8ab4d8;
+}
+
+html.dark .social-card .card-header h4 {
+  color: #e8eaed;
+}
+
+html.dark .social-link-item {
+  background: #252d38;
+  border-color: #3c444d;
+  color: #e8eaed;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+html.dark .social-link-item i {
+  color: #8ab4d8;
+}
+
+html.dark .social-link-item span {
+  color: #c4c7cc;
+}
+
+html.dark .social-link-item:hover {
+  background: #1a4a6e;
+  border-color: #5a8fc4;
+  color: #fff;
+}
+
+html.dark .social-link-item:hover i,
+html.dark .social-link-item:hover span {
+  color: #fff;
+}
+
+html.dark .tech-card {
+  background: #1a2228 !important;
+  border-color: #3c444d !important;
+  border-left-color: #5a8fc4 !important;
+}
+
+html.dark .tech-card .card-header {
+  border-bottom-color: #3c444d;
+}
+
+html.dark .tech-card .card-header i {
+  color: #8ab4d8;
+}
+
+html.dark .tech-card .card-header h4 {
+  color: #e8eaed;
+}
+
+html.dark .tech-badge {
+  background: #252d38;
+  color: #c4c7cc;
+  border-color: #3c444d;
+}
+
+html.dark .tech-badge:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark .tech-badge.highlight {
+  background: rgba(26, 74, 110, 0.45);
+  color: #c5daf7;
+  border-color: #5a8fc4;
+}
+
+/* Skills */
+html.dark .skill-item {
+  background: #1a2228;
+  border-color: #3c444d;
+}
+
+html.dark .skill-header {
+  background: #252d38;
+  border-color: #3c444d;
+}
+
+html.dark .skill-icon {
+  background: #12161d;
+  border-color: #3c444d;
+}
+
+html.dark .skill-icon i {
+  color: #8ab4d8;
+}
+
+html.dark .skill-name {
+  color: #e8eaed;
+}
+
+html.dark .skill-percentage {
+  color: #9aa0a6;
+}
+
+html.dark .skills .progress {
+  background: #252d38;
+}
+
+html.dark .skills .progress-bar {
+  background: linear-gradient(90deg, #1a4a6e, #5a8fc4);
+}
+
+/* Education */
+html.dark .education-card {
+  background: #1a2228;
+  color: #e8eaed;
+  border-color: #3c444d;
+  border-left-color: #5a8fc4;
+}
+
+html.dark .education-icon {
+  background: #252d38;
+  border-color: #3c444d;
+}
+
+html.dark .education-icon i {
+  color: #8ab4d8;
+}
+
+html.dark .university-link {
+  color: #e8eaed;
+}
+
+html.dark .university-link:hover {
+  color: #8ab4d8;
+}
+
+html.dark .education-badge {
+  background: #252d38;
+  border-color: #3c444d;
+  color: #c4c7cc;
+}
+
+html.dark .degree-name {
+  color: #c4c7cc;
+}
+
+html.dark .education-detail-item {
+  background: #252d38;
+  border-color: #3c444d;
+}
+
+html.dark .education-detail-item i {
+  color: #8ab4d8;
+}
+
+html.dark .education-description {
+  background: #151a22;
+  border-color: #3c444d;
+}
+
+html.dark .education-description p {
+  color: #c4c7cc;
+}
+
+/* Projects */
+html.dark .project-card {
+  background: #1a2228;
+  border-color: #3c444d;
+}
+
+html.dark .project-card::before {
+  background: #5a8fc4;
+}
+
+html.dark .project-card:hover {
+  border-color: #4a5568;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .project-card.featured {
+  border-color: #5a8fc4;
+  background: #1e2832;
+}
+
+html.dark .project-badge {
+  background: #1a4a6e;
+  color: #fff;
+}
+
+html.dark .project-icon {
+  background: #252d38;
+  border-color: #3c444d;
+}
+
+html.dark .project-card:hover .project-icon {
+  border-color: #5a8fc4;
+}
+
+html.dark .project-icon i,
+html.dark .project-icon.project-icon--svg {
+  color: #8ab4d8;
+}
+
+html.dark .project-title a {
+  color: #e8eaed;
+}
+
+html.dark .project-title a:hover {
+  color: #8ab4d8;
+}
+
+html.dark .project-description {
+  color: #9aa0a6;
+}
+
+html.dark .tech-tag {
+  background: #252d38;
+  color: #c4c7cc;
+  border-color: #3c444d;
+}
+
+html.dark .tech-tag:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark .project-link {
+  background: #1a2228;
+  color: #8ab4d8;
+  border-color: #5a8fc4;
+}
+
+html.dark .project-link:hover {
+  background: #1a4a6e;
+  color: #fff;
+  border-color: #1a4a6e;
+}
+
+html.dark .project-card.view-all {
+  background: #1a2228;
+  color: #e8eaed;
+  border-color: #4a5568;
+}
+
+html.dark .project-card.view-all .project-icon {
+  background: #252d38;
+  border-color: #3c444d;
+}
+
+html.dark .project-card.view-all .project-title a {
+  color: #e8eaed;
+}
+
+html.dark .project-card.view-all .project-description {
+  color: #9aa0a6;
+}
+
+html.dark .project-card.view-all .project-link {
+  background: #1a2228;
+  color: #8ab4d8;
+  border-color: #5a8fc4;
+}
+
+html.dark .project-card.view-all .project-link:hover {
+  background: #1a4a6e;
+  color: #fff;
+}
+
+/* Contact */
+html.dark .contact-card {
+  background: #1a2228;
+  border-color: #3c444d;
+  border-left-color: #5a8fc4;
+}
+
+html.dark .contact-icon {
+  background: #1a4a6e;
+}
+
+html.dark .contact-icon i {
+  color: #fff;
+}
+
+html.dark .contact-details h4 {
+  color: #e8eaed;
+}
+
+html.dark .contact-details p {
+  color: #9aa0a6;
+}
+
+html.dark .contact-details a {
+  color: #8ab4d8;
+}
+
+html.dark .contact-details a:hover {
+  color: #c5daf7;
+}
+
+html.dark .contact-form-wrapper {
+  background: #1a2228;
+  border-color: #3c444d;
+}
+
+html.dark .form-header {
+  border-bottom-color: #3c444d;
+}
+
+html.dark .form-header-icon {
+  background: #1a4a6e;
+}
+
+html.dark .form-header-icon i {
+  color: #fff;
+}
+
+html.dark .form-header h3 {
+  color: #e8eaed;
+}
+
+html.dark .form-header p {
+  color: #9aa0a6;
+}
+
+html.dark .contact-form label {
+  color: #e8eaed;
+}
+
+html.dark .contact-form label i {
+  color: #8ab4d8;
+}
+
+html.dark .contact-form .form-control {
+  background: #151a22;
+  border-color: #4a5568;
+  color: #e8eaed;
+}
+
+html.dark .contact-form .form-control:focus {
+  border-color: #5a8fc4;
+  background: #1a2228;
+  box-shadow: 0 0 0 3px rgba(90, 143, 196, 0.25);
+  color: #e8eaed;
+}
+
+html.dark .contact-form .form-control::placeholder {
+  color: #7d848d;
+}
+
+html.dark .char-counter {
+  background: #252d38;
+  border-color: #3c444d;
+  color: #9aa0a6;
+}
+
+html.dark .char-counter span {
+  color: #8ab4d8;
+}
+
+html.dark .submit-btn {
+  background: #1a4a6e;
+  border-color: #1a4a6e;
+  color: #fff;
+}
+
+html.dark .submit-btn:hover {
+  background: #2d5f8a;
+  border-color: #2d5f8a;
+}
+
+/* Legacy php-email-form block (if present) */
+html.dark .contact .php-email-form .loading {
+  background: #1a2228;
+  color: #e8eaed;
+}
+
+html.dark .contact .php-email-form button[type="submit"] {
+  background: #1a4a6e;
+  color: #fff;
+}
+
+html.dark .contact .php-email-form button[type="submit"]:hover {
+  background: #2d5f8a;
+}
+
+/* Contact form messages & notes */
+html.dark .form-note {
+  color: #9aa0a6;
+}
+
+html.dark .form-note i {
+  color: #8ab4d8;
+}
+
+html.dark .contact-form .loading {
+  background: #252d38;
+  color: #c4c7cc;
+  border-color: #3c444d;
+}
+
+html.dark .contact-form .sent-message {
+  background: #142218;
+  color: #86efac;
+  border-color: #166534;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .contact-form .sent-message i {
+  color: #4ade80;
+}
+
+html.dark .success-content p {
+  color: #86efac;
+}
+
+html.dark .success-content p strong {
+  color: #bbf7d0;
+}
+
+html.dark .email-link-btn {
+  background: #142218 !important;
+  color: #86efac !important;
+  border-color: #22c55e !important;
+}
+
+html.dark .email-link-btn:hover {
+  background: #166534 !important;
+  color: #ecfdf5 !important;
+  border-color: #4ade80 !important;
+}
+
+html.dark .email-link-btn i {
+  color: #4ade80 !important;
+}
+
+html.dark .success-note {
+  color: #86efac;
+}
+
+html.dark .contact-form .error-message {
+  background: #2a1518;
+  color: #fecaca;
+  border-color: #7f1d1d;
+}
+
+html.dark .contact-form .error-message i {
+  color: #f87171;
+}
+
+html.dark .loading-spinner {
+  border-color: rgba(138, 180, 216, 0.25);
+  border-top-color: #8ab4d8;
+}

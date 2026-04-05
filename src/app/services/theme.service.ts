@@ -26,11 +26,8 @@ export class ThemeService {
       this.applyTheme(stored);
       return;
     }
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      this.applyTheme('dark');
-    } else {
-      this.applyTheme('light');
-    }
+    /* Default for new visitors: light (ignore OS prefers-color-scheme). */
+    this.applyTheme('light');
   }
 
   toggle(): void {

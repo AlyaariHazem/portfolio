@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxLoadingBar } from '@ngx-loading-bar/core';
 import { ThemeService } from './services/theme.service';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -14,6 +15,7 @@ declare var AOS: any;
   selector: 'app-root',
   standalone: true,
   imports: [
+    NgxLoadingBar,
     HeaderComponent,
     HeroComponent,
     AboutComponent,

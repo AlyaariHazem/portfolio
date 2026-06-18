@@ -37,16 +37,13 @@
               "public/vendor/bootstrap/css/bootstrap.min.css",
               "public/vendor/icofont/icofont.min.css",
               "public/vendor/boxicons/css/boxicons.min.css",
-              "public/vendor/aos/aos.css",
               "public/css/style.css",
               "public/css/dark-mode.css"
             ],
             "scripts": [
               "public/vendor/jquery/jquery.min.js",
               "public/vendor/jquery.easing/jquery.easing.min.js",
-              "public/vendor/waypoints/jquery.waypoints.min.js",
               "public/vendor/typed.js/typed.min.js",
-              "public/vendor/aos/aos.js",
               "public/js/main.js"
             ]
           },

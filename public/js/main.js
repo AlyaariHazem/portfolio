@@ -70,12 +70,14 @@
     }
   });
 
-  // Navigation active state on scroll
+  // Navigation active state + back-to-top (single throttled scroll handler)
   var nav_sections = $('section');
   var main_nav = $('.nav-menu, .mobile-nav');
+  var backToTop = $('.back-to-top');
+  var scrollTicking = false;
 
-  $(window).on('scroll', function() {
-    var cur_pos = $(this).scrollTop() + 200;
+  function onWindowScroll() {
+    var cur_pos = $(window).scrollTop() + 200;
 
     nav_sections.each(function() {
       var top = $(this).offset().top,
@@ -92,43 +94,25 @@
         main_nav.find('a[href="#hero"]').parent('li').addClass('active');
       }
     });
-  });
 
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
+    backToTop.toggleClass('is-visible', $(window).scrollTop() > 100);
+    scrollTicking = false;
+  }
+
+  $(window).on('scroll', function() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(onWindowScroll);
     }
   });
+
+  onWindowScroll();
 
   $('.back-to-top').click(function() {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
-  });
-
-  // Skills progress bars (match markup: .skills .progress-bar, not .progress .progress-bar)
-  $('.skills-content').waypoint(function() {
-    $('.skills .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
-
-  // Init AOS
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out-back",
-      once: true
-    });
-  }
-  $(window).on('load', function() {
-    aos_init();
   });
 
 })(jQuery);

@@ -42,9 +42,19 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 15px;
   background: #1a4a6e;
   color: #fff;
-  transition: display 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.2s ease;
   z-index: 9999;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.back-to-top.is-visible {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .back-to-top i {
@@ -296,14 +306,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: auto;
   height: auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem 1.5rem 3.5rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 2.75rem 2rem 3rem;
   background-color: #eef1f5;
   background-image:
     linear-gradient(175deg, #f8fafe 0%, #f0f2f7 35%, #e6e9f0 100%);
@@ -336,15 +346,24 @@ h1, h2, h3, h4, h5, h6 {
 #hero .hero-container {
   position: relative;
   z-index: 1;
-  max-width: 42rem;
+  max-width: 72rem;
   min-width: 0;
   padding: 0;
   width: 100%;
+  margin: 0 auto;
+}
+
+#hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 2rem;
+  align-items: center;
 }
 
 /* ---- branding ---- */
 #hero .hero-branding {
   margin-bottom: 0;
+  text-align: left;
 }
 
 #hero .hero-eyebrow {
@@ -373,7 +392,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 3rem;
   height: 4px;
   border-radius: 2px;
-  margin: 1.15rem auto 0;
+  margin: 1.15rem 0 0;
   background: linear-gradient(90deg, #1a4a6e 0%, #3879a5 60%, #5ea4d0 100%);
 }
 
@@ -411,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- skill chips ---- */
 #hero .hero-chips {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.6rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
@@ -447,10 +466,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---- about card ---- */
 #hero .hero-about-block {
-  margin-top: 2.5rem;
-  padding: 2rem 2rem 1.75rem;
+  margin-top: 0;
+  padding: 1.75rem 1.75rem 1.5rem;
   border-radius: 12px;
-  text-align: center;
+  text-align: left;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(210, 216, 226, 0.85);
   box-shadow:
@@ -466,8 +485,8 @@ h1, h2, h3, h4, h5, h6 {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 1.75rem;
+  transform: none;
   width: 3rem;
   height: 3px;
   border-radius: 0 0 3px 3px;
@@ -475,20 +494,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .hero-intro {
-  margin: 0 auto 1.5rem;
-  max-width: 36rem;
-  font-size: 1.05rem;
-  line-height: 1.82;
+  margin: 0 0 1.25rem;
+  max-width: none;
+  font-size: 1.02rem;
+  line-height: 1.78;
   color: #2f3744;
   font-family: "Source Sans 3", "Segoe UI", sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 /* ---- objective blockquote ---- */
 #hero .hero-objective {
   position: relative;
-  margin: 0 auto 1.75rem;
-  max-width: 36rem;
+  margin: 0 0 1.5rem;
+  max-width: none;
   padding: 1.1rem 1.35rem 1.1rem 2.75rem;
   font-size: 0.96rem;
   line-height: 1.72;
@@ -524,7 +543,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- action buttons ---- */
 #hero .hero-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
@@ -592,20 +611,49 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- tablet ---- */
 @media (max-width: 991px) {
   #hero {
-    padding: 5.5rem 1.25rem 3rem;
+    padding: 4.5rem 1.25rem 2.5rem;
+  }
+
+  #hero .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  #hero .hero-branding {
+    text-align: center;
+  }
+
+  #hero h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #hero .hero-chips,
+  #hero .hero-actions {
+    justify-content: center;
   }
 
   #hero .hero-about-block {
     padding: 1.75rem 1.5rem 1.5rem;
+    text-align: center;
+  }
+
+  #hero .hero-intro {
+    text-align: center;
+  }
+
+  #hero .hero-about-block::before {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
 /* ---- mobile ---- */
 @media (max-width: 768px) {
   #hero {
-    min-height: 100vh;
+    min-height: auto;
     height: auto;
-    padding: 5rem 1rem 2.5rem;
+    padding: 4.25rem 1rem 2.25rem;
     overflow-x: clip;
   }
 
@@ -636,7 +684,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   #hero .hero-about-block {
-    margin-top: 1.75rem;
+    margin-top: 0;
     padding: 1.5rem 1rem;
     border-radius: 10px;
   }

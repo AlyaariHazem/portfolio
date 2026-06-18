@@ -8,8 +8,6 @@ import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 
-declare var AOS: any;
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -32,14 +30,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.themeService.init();
-    // Initialize AOS (Animate On Scroll) after view init
-    if (typeof AOS !== 'undefined') {
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      });
-    }
   }
 }

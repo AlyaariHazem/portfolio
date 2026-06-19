@@ -116,38 +116,58 @@ html.dark .theme-toggle:hover {
   border-color: #1a4a6e;
 }
 
-/* Hero */
-html.dark #hero {
-  background-color: #12161d;
-  background-image: linear-gradient(175deg, #1a2228 0%, #151a22 35%, #0e1218 100%);
+html.dark .main-topbar {
+  background: rgba(14, 18, 24, 0.92);
+  border-bottom-color: #3c444d;
 }
 
-html.dark #hero::before {
-  background-image:
-    radial-gradient(ellipse 80% 50% at 65% -8%, rgba(138, 180, 216, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 15% 105%, rgba(138, 180, 216, 0.05) 0%, transparent 55%);
-}
-
-html.dark #hero::after {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  opacity: 0.5;
-}
-
-html.dark #hero .hero-eyebrow {
+html.dark .main-topbar__label {
   color: #8b9199;
 }
 
-html.dark #hero h1 {
-  color: #e8eaed;
+/* Hero */
+html.dark #hero::before {
+  background: linear-gradient(90deg, #5a8fc4 0%, #7eb3ea 50%, transparent 100%);
+}
+
+html.dark #hero .hero-container {
+  background:
+    linear-gradient(135deg, rgba(138, 180, 216, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #151a22 0%, #0e1218 100%);
+}
+
+html.dark #hero .hero-about-block {
+  background: #1a2228;
+  border-color: #3c444d;
+  box-shadow: 0 8px 28px -12px rgba(0, 0, 0, 0.4);
+}
+
+html.dark #hero .hero-intro {
+  color: #c4c7cc;
+}
+
+html.dark #hero .hero-objective {
+  color: #c4c7cc;
+  background: #151a22;
+  border-color: #3c444d;
+  border-left-color: #5a8fc4;
+}
+
+html.dark #hero .hero-objective i {
+  color: #8ab4d8;
 }
 
 html.dark #hero h1::after {
-  background: linear-gradient(90deg, #5a8fc4 0%, #7eb3ea 60%, #a8cfff 100%);
+  background: #5a8fc4;
 }
 
 html.dark #hero .hero-tagline,
 html.dark #hero p {
   color: #9aa0a6;
+}
+
+html.dark #hero h1 {
+  color: #e8eaed;
 }
 
 html.dark #hero p span.typed {
@@ -161,7 +181,7 @@ html.dark #hero .typed-cursor {
 
 html.dark #hero .hero-chip {
   color: #c4c7cc;
-  background: rgba(26, 34, 40, 0.85);
+  background: #151a22;
   border-color: rgba(138, 180, 216, 0.28);
 }
 
@@ -169,39 +189,6 @@ html.dark #hero .hero-chip:hover {
   background: #1a4a6e;
   color: #fff;
   border-color: #1a4a6e;
-}
-
-html.dark #hero .hero-about-block {
-  background: rgba(26, 34, 40, 0.95);
-  border-color: rgba(60, 68, 77, 0.9);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 20px 60px -24px rgba(0, 0, 0, 0.45),
-    0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-html.dark #hero .hero-about-block::before {
-  background: linear-gradient(90deg, #5a8fc4, #7eb3ea);
-}
-
-html.dark #hero .hero-intro {
-  color: #c4c7cc;
-}
-
-html.dark #hero .hero-objective {
-  color: #c4c7cc;
-  background: linear-gradient(135deg, #1a2228 0%, #151a22 100%);
-  border-color: #3c444d;
-  border-left-color: #5a8fc4;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-html.dark #hero .hero-objective::before {
-  color: rgba(138, 180, 216, 0.25);
-}
-
-html.dark #hero .hero-objective i {
-  color: #8ab4d8;
 }
 
 html.dark #hero .hero-cta-primary {

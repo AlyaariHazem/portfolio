@@ -33,6 +33,12 @@ export class ContactComponent implements OnInit, AfterViewInit {
     subject: '',
     message: ''
   };
+  fieldErrors = {
+    name: '',
+    subject: '',
+    message: ''
+  };
+  submitted = false;
   charCount = 0;
   maxChars = 500;
   isSubmitting = false;
@@ -127,16 +133,71 @@ export class ContactComponent implements OnInit, AfterViewInit {
     return `mailto:${recipient}?subject=${subject}&body=${body}`;
   }
 
+  clearFieldError(field: 'name' | 'subject' | 'message'): void {
+    this.fieldErrors[field] = '';
+    if (!this.fieldErrors.name && !this.fieldErrors.subject && !this.fieldErrors.message) {
+      this.showError = false;
+      this.errorMessage = '';
+    }
+  }
+
+  private validateForm(): boolean {
+    this.fieldErrors = { name: '', subject: '', message: '' };
+
+    const name = this.formData.name.trim();
+    const subject = this.formData.subject.trim();
+    const message = this.formData.message.trim();
+    let valid = true;
+
+    if (!name) {
+      this.fieldErrors.name = 'Please enter your name.';
+      valid = false;
+    }
+
+    if (!subject) {
+      this.fieldErrors.subject = 'Please enter a subject.';
+      valid = false;
+    }
+
+    if (!message) {
+      this.fieldErrors.message = 'Please enter your message.';
+      valid = false;
+    } else if (message.length > this.maxChars) {
+      this.fieldErrors.message = `Message must be ${this.maxChars} characters or less.`;
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  private focusFirstInvalidField(): void {
+    const firstInvalid = document.querySelector<HTMLElement>(
+      '#contactForm .form-control.is-invalid, #contactForm textarea.is-invalid'
+    );
+    firstInvalid?.focus();
+    firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
-    
+
     if (this.isSubmitting) return;
-    
-    this.showLoading = true;
-    this.showError = false;
+
+    this.submitted = true;
+    this.showLoading = false;
     this.showSuccess = false;
+    this.showError = false;
     this.errorMessage = '';
+
+    if (!this.validateForm()) {
+      this.showError = true;
+      this.errorMessage = 'Please fill in all required fields marked with *.';
+      this.focusFirstInvalidField();
+      return;
+    }
+    
     this.isSubmitting = true;
+    this.showLoading = true;
 
     const submitBtn = document.querySelector('.submit-btn');
     if (submitBtn) {
@@ -148,6 +209,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
       this.showLoading = false;
       this.showSuccess = true;
       this.isSubmitting = false;
+      this.submitted = false;
       if (submitBtn) {
         submitBtn.classList.remove('loading');
       }

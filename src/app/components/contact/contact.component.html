@@ -15,7 +15,7 @@
           </div>
           <div class="contact-details">
             <h4>Location</h4>
-            <p>Yemen, Sana'a, Alhaymah Aldakliah, Alyaar</p>
+            <p>Yemen, Amanat Al Asimah, As Sabain District, Souq Ma'yad</p>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
             <h3>Send me a message</h3>
             <p>Fill out the form below and I'll get back to you as soon as possible</p>
           </div>
-          <form (ngSubmit)="onSubmit($event)" class="php-email-form contact-form" id="contactForm">
+          <form (ngSubmit)="onSubmit($event)" class="php-email-form contact-form" id="contactForm" novalidate>
             <div class="form-group">
               <label for="name">
                 <i class="bx bx-user"></i> Your Name
@@ -74,13 +74,15 @@
               <div class="input-wrapper">
                 <input type="text" name="name" class="form-control" id="name" 
                   placeholder="Enter your full name" required 
-                  [(ngModel)]="formData.name" />
+                  [(ngModel)]="formData.name"
+                  [class.is-invalid]="!!fieldErrors.name"
+                  (input)="clearFieldError('name')" />
                 <span class="input-icon">
                   <i class="bx bx-check-circle valid-icon"></i>
                   <i class="bx bx-x-circle invalid-icon"></i>
                 </span>
               </div>
-              <div class="validate"></div>
+              <div class="validate" [class.show]="fieldErrors.name">{{ fieldErrors.name }}</div>
             </div>
             <div class="form-group">
               <label for="subject">
@@ -90,13 +92,15 @@
               <div class="input-wrapper">
                 <input type="text" class="form-control" name="subject" id="subject"
                   placeholder="What's this about?" required 
-                  [(ngModel)]="formData.subject" />
+                  [(ngModel)]="formData.subject"
+                  [class.is-invalid]="!!fieldErrors.subject"
+                  (input)="clearFieldError('subject')" />
                 <span class="input-icon">
                   <i class="bx bx-check-circle valid-icon"></i>
                   <i class="bx bx-x-circle invalid-icon"></i>
                 </span>
               </div>
-              <div class="validate"></div>
+              <div class="validate" [class.show]="fieldErrors.subject">{{ fieldErrors.subject }}</div>
             </div>
             <div class="form-group">
               <label for="message">
@@ -106,12 +110,14 @@
               <div class="textarea-wrapper">
                 <textarea class="form-control" name="message" id="message" rows="6"
                   placeholder="Tell me about your project, ask a question, or just say hello..." required
-                  [(ngModel)]="formData.message"></textarea>
+                  [(ngModel)]="formData.message"
+                  [class.is-invalid]="!!fieldErrors.message"
+                  (input)="clearFieldError('message')"></textarea>
                 <div class="char-counter">
                   <span id="charCount">0</span> / 500
                 </div>
               </div>
-              <div class="validate"></div>
+              <div class="validate" [class.show]="fieldErrors.message">{{ fieldErrors.message }}</div>
             </div>
             <div class="mb-3">
               <div class="loading" [class.show]="showLoading">

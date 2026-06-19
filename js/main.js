@@ -16,18 +16,82 @@
   }
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
+  function getFixedHeaderOffset() {
+    var topbar = document.querySelector('.main-topbar');
+    return topbar ? topbar.offsetHeight : 56;
+  }
+
+  function scrollToTarget(target, animate) {
+    if (!target.length) {
+      return false;
+    }
+
+    var scrollto = target.offset().top - getFixedHeaderOffset() - 16;
+
+    if (animate) {
+      $('html, body').stop(true).animate({
+        scrollTop: scrollto
+      }, 1500, 'easeInOutExpo');
+    } else {
+      $('html, body').scrollTop(scrollto);
+    }
+
+    return true;
+  }
+
+  function scrollToSectionHash(hash, animate) {
+    var target = $(hash);
+    if (!target.length) {
+      return false;
+    }
+
+    if (history.replaceState) {
+      history.replaceState(null, '', hash);
+    } else {
+      window.location.hash = hash;
+    }
+
+    scrollToTarget(target, animate);
+
+    // Deferred sections replace placeholders after load — keep scroll aligned
+    var main = document.getElementById('main');
+    if (!main) {
+      return true;
+    }
+
+    var realignCount = 0;
+    var realignTimer = setInterval(function() {
+      scrollToTarget($(hash), false);
+      realignCount += 1;
+      if (realignCount >= 10) {
+        clearInterval(realignTimer);
+      }
+    }, 250);
+
+    var observer = new MutationObserver(function() {
+      scrollToTarget($(hash), false);
+    });
+
+    observer.observe(main, { childList: true, subtree: true });
+
+    setTimeout(function() {
+      observer.disconnect();
+      clearInterval(realignTimer);
+      scrollToTarget($(hash), false);
+    }, 3000);
+
+    return true;
+  }
+
   $(document).on('click', '.nav-menu a, .scrollto', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      if (!this.hash) {
+        return;
+      }
+
       e.preventDefault();
-      var target = $(this.hash);
-      if (target.length) {
 
-        var scrollto = target.offset().top;
-
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-
+      if (scrollToSectionHash(this.hash, true)) {
         if ($(this).parents('.nav-menu, .mobile-nav').length) {
           $('.nav-menu .active, .mobile-nav .active').removeClass('active');
           $(this).closest('li').addClass('active');
@@ -37,21 +101,16 @@
           $('body').removeClass('mobile-nav-active');
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
         }
-        return false;
       }
+
+      return false;
     }
   });
 
   // Activate smooth scroll on page load with hash links in the url
   $(document).ready(function() {
     if (window.location.hash) {
-      var initial_nav = window.location.hash;
-      if ($(initial_nav).length) {
-        var scrollto = $(initial_nav).offset().top;
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-      }
+      scrollToSectionHash(window.location.hash, true);
     }
   });
 

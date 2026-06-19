@@ -646,11 +646,11 @@ section {
   overflow: hidden;
   background: #f4f5f7;
   position: relative;
-  scroll-margin-top: 3.5rem;
+  scroll-margin-top: calc(3.5rem + 1rem);
 }
 
 #about.about {
-  padding-top: 2rem;
+  padding-top: 3rem;
 }
 
 section .container {
@@ -1608,6 +1608,33 @@ section .container {
 
 .contact-form .form-control:invalid:not(:placeholder-shown):not(:focus) {
   border-color: #dc3545;
+}
+
+.contact-form .form-control.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+
+.contact-form .validate {
+  display: none;
+  margin-top: 6px;
+  color: #dc3545;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.contact-form .validate.show {
+  display: block;
+}
+
+.contact-form .form-control.is-invalid + .input-icon .invalid-icon {
+  opacity: 1;
+}
+
+.contact-form textarea.form-control.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
 }
 
 .input-icon {

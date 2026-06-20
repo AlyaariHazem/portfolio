@@ -147,5 +147,38 @@
         </div>
       </div>
     </div>
+
+    <div class="angular-expertise">
+      <div class="angular-expertise__header">
+        <div class="angular-expertise__icon">
+          <i class="bx bxl-angular"></i>
+        </div>
+        <h3>Angular Expertise</h3>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="angular-expertise__card">
+            <ul class="angular-expertise__list">
+              @for (topic of angularFoundational; track topic) {
+                <li>{{ topic }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="angular-expertise__card">
+            <h4>Mid-Level Angular Developer</h4>
+            <p class="angular-expertise__focus">Focus on:</p>
+            <ul class="angular-expertise__list">
+              @for (topic of angularMidLevel; track topic) {
+                <li>{{ topic }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

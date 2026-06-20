@@ -9,4 +9,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './skills.component.scss'
 })
 export class SkillsComponent {
+  readonly angularFoundational = [
+    'Angular Fundamentals',
+    'Components',
+    'Routing',
+    'Forms',
+    'HTTP',
+    'Basic RxJS'
+  ];
+
+  readonly angularMidLevel = [
+    'Advanced RxJS',
+    'Signals',
+    'State Management',
+    'Testing',
+    'Performance Optimization'
+  ];
 }

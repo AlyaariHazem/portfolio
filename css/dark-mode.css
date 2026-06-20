@@ -365,6 +365,27 @@ html.dark .skills .progress-bar {
   background: linear-gradient(90deg, #1a4a6e, #5a8fc4);
 }
 
+html.dark .angular-expertise__header h3 {
+  color: #e8eaed;
+}
+
+html.dark .angular-expertise__card {
+  background: #1a2228;
+  border-color: #3c444d;
+}
+
+html.dark .angular-expertise__card h4 {
+  color: #e8eaed;
+}
+
+html.dark .angular-expertise__focus {
+  color: #9aa0a6;
+}
+
+html.dark .angular-expertise__list li {
+  color: #e8eaed;
+}
+
 /* Education */
 html.dark .education-card {
   background: #1a2228;

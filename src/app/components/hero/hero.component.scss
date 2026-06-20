@@ -300,6 +300,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+
+  .btn-portfolio--primary,
+  .btn-portfolio--primary:hover {
+    color: #fff !important;
+
+    .arw {
+      color: inherit;
+      opacity: 1;
+    }
+  }
 }
 
 .hero__cue {

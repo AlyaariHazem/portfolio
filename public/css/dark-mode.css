@@ -16,6 +16,17 @@ html.dark a:hover {
   color: #c5daf7;
 }
 
+html.dark a.btn-portfolio--primary,
+html.dark a.btn-portfolio--primary:hover,
+html[data-theme='dark'] a.btn-portfolio--primary,
+html[data-theme='dark'] a.btn-portfolio--primary:hover,
+html.dark .site-header__cta,
+html.dark .site-header__cta:hover,
+html[data-theme='dark'] .site-header__cta,
+html[data-theme='dark'] .site-header__cta:hover {
+  color: #fff !important;
+}
+
 html.dark .back-to-top {
   background: #1a4a6e;
   color: #fff;
@@ -243,14 +254,14 @@ html.dark .section-title p {
 }
 
 /* About & tech cards */
-html.dark .about-card {
+html.dark .about-card:not(.glass-surface) {
   background: #1a2228;
   border-color: #3c444d;
   color: #e8eaed;
   border-left-color: #5a8fc4;
 }
 
-html.dark .about-card:hover {
+html.dark .about-card:not(.glass-surface):hover {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
@@ -293,7 +304,7 @@ html.dark .social-link-item:hover span {
   color: #fff;
 }
 
-html.dark .tech-card {
+html.dark .tech-card:not(.glass-surface) {
   background: #1a2228 !important;
   border-color: #3c444d !important;
   border-left-color: #5a8fc4 !important;
@@ -545,7 +556,7 @@ html.dark .project-card.view-all .project-link:hover {
 }
 
 /* Contact */
-html.dark .contact-card {
+html.dark .contact-card:not(.glass-surface) {
   background: #1a2228;
   border-color: #3c444d;
   border-left-color: #5a8fc4;

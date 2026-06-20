@@ -1,57 +1,86 @@
-<!-- Main content top bar -->
-<div class="main-topbar">
-  <p class="main-topbar__label">Portfolio · Software Engineering</p>
-  <div class="main-topbar__actions">
-    <button type="button" class="theme-toggle" (click)="theme.toggle()"
-      [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
-      [attr.title]="theme.isDark() ? 'Light mode' : 'Dark mode'">
-      <i class="bx" [ngClass]="theme.isDark() ? 'bx-sun' : 'bx-moon'"></i>
-    </button>
-  </div>
-</div>
+<header id="header" class="site-header" [class.site-header--menu-open]="isMobileMenuOpen" [class.site-header--scrolled]="isScrolled">
+  <div class="site-header__in">
+    <a class="site-header__brand" href="#hero">
+      <span class="site-header__avatar-wrap">
+        <img
+          src="img/profile-img.webp"
+          alt=""
+          class="site-header__avatar"
+          width="40"
+          height="40"
+          aria-hidden="true">
+        <span class="site-header__status" aria-hidden="true"></span>
+      </span>
+      <span class="site-header__brand-text">
+        <strong>Hazem Alyaari</strong>
+        <small>Software Engineer · Yemen</small>
+      </span>
+    </a>
 
-<!-- ======= Mobile nav toggle button ======= -->
-<button type="button" class="mobile-nav-toggle d-xl-none" (click)="toggleMobileMenu()">
-  <i class="icofont-navigation-menu"></i>
-</button>
-
-<!-- ======= Header ======= -->
-<header id="header">
-  <div class="d-flex flex-column">
-    <div class="profile">
-        <p><a href="#hero">
-          <img src="img/profile-img.webp" alt="Hazem Alyaari" class="img-fluid rounded-circle">
-        </a></p>
-      <div class="text-center">
-        <h1><a href="#hero">Hazem Alyaari</a></h1>
-      </div>
-      <div class="social-links mt-3 text-center">
-        <a href="https://www.linkedin.com/in/hazem-al-yaari-65b141307/" target="_blank" rel="noopener"
-          title="LinkedIn Hazem Alyaar" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/alyaarihazem" target="_blank" rel="noopener" title="GitHub alyaarihazem"
-          class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100027605985651" target="_blank" rel="noopener"
-          title="Facebook Hazem Abdullah Alyaari" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://magenta-kitten-9a6e8a.netlify.app/" target="_blank" rel="noopener"
-          title="View My E-Commerce Website" class="website">
-          <i class="bx bx-cart"></i>
-        </a>
-      </div>
-    </div>
-
-    <nav class="nav-menu">
+    <nav class="site-header__nav nav-menu" aria-label="Primary">
       <ul>
-        <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#services"><i class="bx bx-code-block"></i> Projects</a></li>
-        <li><a href="https://app.daily.dev/hazemalyaari" target="_blank" rel="noopener"><i class="bx bx-code-block"></i>
-            Daily.Dev</a></li>
-        <li><a href="https://www.blogger.com/profile/15568617126796440151" target="_blank" rel="noopener"
-            title="Blog posts"><i class="bx bxl-blogger"></i> Blog</a></li>
-        <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+        <li class="active"><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="site-header__nav-extra"><a href="https://app.daily.dev/hazemalyaari" target="_blank" rel="noopener">Daily.Dev</a></li>
+        <li class="site-header__nav-extra"><a href="https://www.blogger.com/profile/15568617126796440151" target="_blank" rel="noopener">Blog</a></li>
       </ul>
     </nav>
-    <button type="button" class="mobile-nav-toggle d-xl-none" (click)="toggleMobileMenu()"><i
-        class="icofont-navigation-menu"></i></button>
+
+    <div class="site-header__actions">
+      <div class="site-header__socials">
+        <a href="https://www.linkedin.com/in/hazem-al-yaari-65b141307/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://github.com/alyaarihazem" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="bx bxl-github"></i>
+        </a>
+        <a href="mailto:alyaarihazem@gmail.com" aria-label="Email">
+          <i class="bx bx-envelope"></i>
+        </a>
+      </div>
+
+      <a href="#contact" class="site-header__cta btn-portfolio btn-portfolio--primary scrollto">
+        Get in touch <span class="arw">→</span>
+      </a>
+
+      <button
+        type="button"
+        class="site-header__theme"
+        (click)="theme.toggle()"
+        [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
+        <i class="bx" [ngClass]="theme.isDark() ? 'bx-sun' : 'bx-moon'"></i>
+      </button>
+
+      <button
+        type="button"
+        class="site-header__menu-btn mobile-nav-toggle"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Toggle navigation">
+        <i class="bx" [ngClass]="isMobileMenuOpen ? 'bx-x' : 'bx-menu'"></i>
+      </button>
+    </div>
   </div>
+
+  <nav class="site-header__drawer mobile-nav" aria-label="Mobile" [attr.aria-hidden]="!isMobileMenuOpen">
+    <ul>
+      <li><a href="#hero" (click)="closeMobileMenu()">Home</a></li>
+      <li><a href="#about" (click)="closeMobileMenu()">About</a></li>
+      <li><a href="#skills" (click)="closeMobileMenu()">Skills</a></li>
+      <li><a href="#services" (click)="closeMobileMenu()">Projects</a></li>
+      <li><a href="#contact" (click)="closeMobileMenu()">Contact</a></li>
+      <li><a href="https://app.daily.dev/hazemalyaari" target="_blank" rel="noopener">Daily.Dev</a></li>
+      <li><a href="https://www.blogger.com/profile/15568617126796440151" target="_blank" rel="noopener">Blog</a></li>
+    </ul>
+    <div class="site-header__drawer-socials">
+      <a href="https://www.linkedin.com/in/hazem-al-yaari-65b141307/" target="_blank" rel="noopener"><i class="bx bxl-linkedin"></i></a>
+      <a href="https://github.com/alyaarihazem" target="_blank" rel="noopener"><i class="bx bxl-github"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100027605985651" target="_blank" rel="noopener"><i class="bx bxl-facebook"></i></a>
+    </div>
+  </nav>
 </header>
+
+<div class="site-header__backdrop" [class.is-visible]="isMobileMenuOpen" (click)="closeMobileMenu()" aria-hidden="true"></div>

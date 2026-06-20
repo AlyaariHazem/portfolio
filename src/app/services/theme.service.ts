@@ -6,7 +6,7 @@ const STORAGE_KEY = 'portfolio-theme';
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
-  private readonly themeSignal = signal<'light' | 'dark'>('light');
+  private readonly themeSignal = signal<'light' | 'dark'>('dark');
 
   readonly theme = this.themeSignal.asReadonly();
 
@@ -26,8 +26,8 @@ export class ThemeService {
       this.applyTheme(stored);
       return;
     }
-    /* Default for new visitors: light (ignore OS prefers-color-scheme). */
-    this.applyTheme('light');
+    /* Default for new visitors: dark (ignore OS prefers-color-scheme). */
+    this.applyTheme('dark');
   }
 
   toggle(): void {
@@ -46,7 +46,7 @@ export class ThemeService {
     }
     const meta = this.document.querySelector<HTMLMetaElement>('#meta-theme-color');
     if (meta) {
-      meta.content = theme === 'dark' ? '#12161d' : '#f4f5f7';
+      meta.content = theme === 'dark' ? '#0a0e19' : '#eef1f6';
     }
   }
 }

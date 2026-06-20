@@ -1,1 +1,244 @@
-// About component styles are in the main style.css file
+:host {
+  display: block;
+}
+
+.about-card {
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.56) 48%,
+    rgba(var(--accent-rgb), 0.07) 100%
+  ) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.14) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.35);
+  backdrop-filter: blur(16px) saturate(1.35);
+  box-shadow:
+    0 20px 48px -28px rgba(var(--accent-rgb), 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58) !important;
+  transition:
+    border-color 0.4s ease,
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      420px circle at var(--cx, 72%) var(--cy, 18%),
+      rgba(var(--accent-rgb), 0.14),
+      transparent 58%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.64) 50%,
+      rgba(var(--accent-rgb), 0.11) 100%
+    ) !important;
+    border-color: rgba(var(--accent-rgb), 0.32) !important;
+    box-shadow:
+      0 28px 56px -22px rgba(var(--accent-rgb), 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+:host-context(html.dark) .about-card,
+:host-context(html[data-theme='dark']) .about-card {
+  background: linear-gradient(
+    165deg,
+    rgba(24, 34, 54, 0.9) 0%,
+    rgba(12, 18, 32, 0.78) 52%,
+    rgba(var(--accent-rgb), 0.16) 100%
+  ) !important;
+  border-color: rgba(var(--accent-rgb), 0.24) !important;
+  box-shadow:
+    0 24px 52px -26px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
+
+  &:hover {
+    background: linear-gradient(
+      165deg,
+      rgba(32, 44, 68, 0.94) 0%,
+      rgba(16, 24, 42, 0.84) 54%,
+      rgba(var(--accent-rgb), 0.22) 100%
+    ) !important;
+    border-color: rgba(var(--accent-rgb), 0.38) !important;
+    box-shadow:
+      0 32px 60px -24px rgba(var(--accent-rgb), 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  }
+}
+
+.tech-card {
+  height: 100%;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    border-radius: 3px 0 0 3px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line-soft) !important;
+  }
+
+  .card-header i {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    margin-right: 0 !important;
+    font-size: 1.35rem !important;
+    color: var(--icon-box-fg) !important;
+    background: var(--icon-box-bg);
+    border-radius: var(--icon-box-radius);
+    box-shadow: var(--icon-box-shadow);
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  &:hover .card-header i {
+    transform: scale(1.06) rotate(-3deg);
+  }
+
+  .card-header h4 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    color: var(--ink) !important;
+  }
+}
+
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.12) !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  color: var(--slate) !important;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(var(--accent-rgb), 0.45) !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    color: var(--cobalt-ink) !important;
+    box-shadow: 0 6px 16px -10px rgba(var(--accent-rgb), 0.35);
+  }
+
+  &.highlight {
+    background: var(--accent-grad) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    box-shadow: var(--accent-shadow);
+
+    &:hover {
+      color: #fff !important;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: var(--accent-shadow-lg);
+    }
+  }
+}
+
+:host-context(html.dark) .tech-badge,
+:host-context(html[data-theme='dark']) .tech-badge {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(var(--accent-rgb), 0.45) !important;
+  }
+}
+
+.social-card {
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .card-header i {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    font-size: 1.35rem;
+    color: var(--icon-box-fg);
+    background: var(--icon-box-bg);
+    border-radius: var(--icon-box-radius);
+    box-shadow: var(--icon-box-shadow);
+  }
+}
+
+.social-link-item {
+  flex: 1;
+  min-width: min(100%, 260px);
+  justify-content: flex-start;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -16px rgba(var(--accent-rgb), 0.3);
+  }
+
+  i {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover i {
+    transform: scale(1.12);
+  }
+}

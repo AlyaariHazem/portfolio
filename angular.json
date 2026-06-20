@@ -35,12 +35,14 @@
             "styles": [
               "src/styles.scss",
               "public/vendor/bootstrap/css/bootstrap.min.css",
-              "public/vendor/icofont/icofont.min.css",
               "public/vendor/boxicons/css/boxicons.min.css",
               "public/css/style.css",
-              "public/css/dark-mode.css"
+              "public/css/dark-mode.css",
+              "public/css/enhanced.css"
             ],
             "scripts": [
+              "public/js/background.js",
+              "public/js/reveal.js",
               "public/vendor/jquery/jquery.min.js",
               "public/vendor/jquery.easing/jquery.easing.min.js",
               "public/vendor/typed.js/typed.min.js",

@@ -1,0 +1,348 @@
+/* Enhanced design layer — uses tokens from styles.scss */
+
+/* Let the neural canvas show through the whole page */
+body {
+  background-color: var(--frost) !important;
+  background-image: radial-gradient(120% 80% at 50% -10%, var(--frost-2), transparent 60%) !important;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--header-h);
+}
+
+#hero,
+#hero.hero {
+  background: transparent !important;
+}
+
+#hero::before {
+  display: none !important;
+}
+
+.section-bg,
+.about,
+.skills,
+.services,
+.contact,
+.education {
+  background: transparent !important;
+}
+
+#header.site-header {
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px) saturate(1.4);
+}
+
+#main {
+  margin-left: 0 !important;
+  background: transparent;
+}
+
+#hero,
+#hero.hero {
+  margin-left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: calc(100svh - var(--header-h)) !important;
+  padding: clamp(2rem, 8vh, 4.5rem) 0 clamp(4rem, 10vh, 6rem) 0 !important;
+  scroll-margin-top: var(--header-h) !important;
+  background: transparent !important;
+}
+
+@media (max-width: 1199px) {
+  #header.site-header {
+    left: 0 !important;
+  }
+}
+
+.mobile-nav-active #header.site-header {
+  left: 0 !important;
+}
+
+/* Sections */
+.about,
+.skills,
+.services,
+.contact,
+.education,
+.section-bg {
+  background: transparent !important;
+  padding-block: clamp(72px, 12vh, 140px);
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+
+#hero,
+#services,
+#about,
+#skills,
+#contact,
+#Education {
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+
+.section-title {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+  max-width: min(var(--maxw), 100% - var(--gut) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.section-title .eyebrow {
+  display: inline-flex;
+  margin-bottom: 18px;
+}
+
+.section-title h2,
+.section-title .section-head {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.95rem, 4.6vw, 3.35rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 18ch;
+  margin: 0;
+}
+
+.section-title .section-head .hl {
+  color: var(--cobalt-ink);
+}
+
+.section-title h2::before {
+  display: none;
+}
+
+.section-title p {
+  font-family: 'Inter', sans-serif;
+  color: var(--slate);
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.75;
+  max-width: 60ch;
+  margin-top: 18px;
+}
+
+.about .container,
+.skills .container,
+.services .container,
+.contact .container,
+.education .container {
+  width: min(var(--maxw), 100% - var(--gut) * 2);
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* About cards */
+.about-card,
+.tech-card,
+.social-card {
+  background: var(--paper) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r) !important;
+  backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: 0 16px 40px -24px rgba(39, 64, 230, 0.15) !important;
+  transition: border-color 0.4s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.45s ease, box-shadow 0.45s;
+}
+
+.about-card:hover,
+.tech-card:hover {
+  border-color: rgba(var(--accent-rgb), 0.35) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -20px rgba(var(--accent-rgb), 0.22) !important;
+}
+
+.about-card .card-header h4,
+.tech-card .card-header h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt-ink);
+}
+
+.about-card .card-header i {
+  color: var(--cobalt-ink);
+}
+
+.tech-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--slate);
+  background: var(--chip-bg);
+}
+
+.tech-badge.highlight {
+  color: var(--ink);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.social-link-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--ghost-bg);
+  color: var(--slate);
+}
+
+.social-link-item:hover {
+  color: var(--cobalt-ink);
+  border-color: rgba(var(--accent-rgb), 0.4);
+  background: var(--accent-soft);
+}
+
+/* About cards — neutralize legacy styles */
+.tech-card {
+  border-left: none !important;
+}
+
+/* Projects — disable legacy left accent bar */
+.project-card::before {
+  display: none !important;
+}
+
+/* Contact */
+.contact-card {
+  background: var(--paper) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: none !important;
+  transition: transform 0.4s, border-color 0.4s;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.32) !important;
+}
+
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--icon-box-radius) !important;
+  background: var(--icon-box-bg) !important;
+  box-shadow: var(--icon-box-shadow) !important;
+  display: grid !important;
+  place-items: center;
+}
+
+.contact-icon i {
+  color: var(--icon-box-fg) !important;
+}
+
+.contact-details h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cobalt-ink);
+}
+
+.contact-details p,
+.contact-details a {
+  color: var(--slate);
+}
+
+.php-email-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  backdrop-filter: blur(10px);
+}
+
+.php-email-form input,
+.php-email-form textarea {
+  background: var(--ghost-bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 12px;
+}
+
+.php-email-form button[type='submit'] {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  border: none;
+  border-radius: 14px;
+  box-shadow: var(--btn-primary-shadow);
+  font-weight: 600;
+}
+
+.php-email-form button[type='submit']:hover {
+  background: var(--accent-grad-hover) !important;
+  box-shadow: var(--btn-primary-shadow-h) !important;
+  transform: translateY(-2px);
+}
+
+/* Education */
+.education-item,
+.education-card {
+  background: var(--paper) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Back to top */
+.back-to-top {
+  border-radius: 14px;
+  background: var(--mark-bg);
+  color: var(--mark-fg);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 30px -14px rgba(11, 18, 32, 0.45);
+}
+
+.back-to-top:hover {
+  background: var(--cobalt);
+  color: #fff;
+}
+
+/* Override legacy hero styles from style.css */
+#hero.hero {
+  background: transparent;
+}
+
+#hero.hero::before {
+  display: none;
+}
+
+#hero .hero-container,
+#hero .hero-about-block {
+  all: unset;
+}
+
+/* Dark mode harmonization (overrides legacy dark-mode.css) */
+html.dark body,
+html[data-theme='dark'] body {
+  background-color: var(--frost);
+  background-image: radial-gradient(120% 80% at 50% -10%, var(--frost-2), transparent 60%);
+  color: var(--ink);
+}
+
+html.dark #main,
+html[data-theme='dark'] #main {
+  background: transparent;
+}
+
+html.dark #header.site-header,
+html[data-theme='dark'] #header.site-header {
+  background: var(--nav-bg);
+  border-bottom-color: var(--line-soft);
+}
+
+html.dark .nav-menu a,
+html[data-theme='dark'] .nav-menu a {
+  color: var(--slate);
+}
+
+html.dark .nav-menu a:hover,
+html.dark .nav-menu .active > a,
+html.dark .nav-menu li:hover > a,
+html[data-theme='dark'] .nav-menu a:hover,
+html[data-theme='dark'] .nav-menu .active > a,
+html[data-theme='dark'] .nav-menu li:hover > a {
+  color: var(--ink);
+  background: none;
+}

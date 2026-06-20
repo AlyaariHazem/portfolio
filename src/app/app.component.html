@@ -1,36 +1,27 @@
-<app-header></app-header>
-<app-hero></app-hero>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<main id="main">
-  @defer (on viewport; prefetch on idle) {
+<app-scroll-progress></app-scroll-progress>
+
+<div class="app-shell">
+  <app-header></app-header>
+  <app-hero></app-hero>
+
+  <main id="main" class="main-shell" tabindex="-1">
     <app-about></app-about>
-  } @placeholder {
-    <div id="about" class="defer-skeleton defer-skeleton--about" aria-hidden="true"></div>
-  }
-
-  @defer (on viewport; prefetch on idle) {
     <app-skills></app-skills>
-  } @placeholder {
-    <div id="skills" class="defer-skeleton defer-skeleton--section" aria-hidden="true"></div>
-  }
-
-  @defer (on viewport; prefetch on idle) {
     <app-education></app-education>
-  } @placeholder {
-    <div id="Education" class="defer-skeleton defer-skeleton--section defer-skeleton--short" aria-hidden="true"></div>
-  }
-
-  @defer (on viewport; prefetch on idle) {
     <app-projects></app-projects>
-  } @placeholder {
-    <div id="services" class="defer-skeleton defer-skeleton--section defer-skeleton--tall" aria-hidden="true"></div>
-  }
-
-  @defer (on viewport; prefetch on idle) {
     <app-contact></app-contact>
-  } @placeholder {
-    <div id="contact" class="defer-skeleton defer-skeleton--section" aria-hidden="true"></div>
-  }
-</main>
+  </main></div>
 
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+<button
+  type="button"
+  class="back-top-fab"
+  [class.is-visible]="showBackToTop()"
+  (click)="scrollToTop()"
+  aria-label="Back to top">
+  <span class="back-top-fab__icon" aria-hidden="true">
+    <i class="bx bx-chevrons-up"></i>
+  </span>
+  <span class="back-top-fab__label">Top</span>
+</button>

@@ -2,8 +2,9 @@
 <section id="contact" class="contact">
   <div class="container">
     <div class="section-title">
-      <h2>Contact</h2>
-      <p>Discuss my projects or just want to say hi? My inbox is open for all.</p>
+      <span class="eyebrow reveal">05 — Contact</span>
+      <h2 class="section-head reveal">Let's build something <span class="hl">together.</span></h2>
+      <p class="reveal">Discuss my projects or just want to say hi? My inbox is open for all.</p>
     </div>
 
     <!-- Contact Information Cards Row -->
@@ -59,6 +60,7 @@
       <div class="col-lg-12">
         <div class="contact-form-wrapper">
           <div class="form-header">
+            <span class="form-header__eyebrow">Direct message</span>
             <div class="form-header-icon">
               <i class="bx bx-message-rounded-dots"></i>
             </div>
@@ -66,41 +68,43 @@
             <p>Fill out the form below and I'll get back to you as soon as possible</p>
           </div>
           <form (ngSubmit)="onSubmit($event)" class="php-email-form contact-form" id="contactForm" novalidate>
-            <div class="form-group">
-              <label for="name">
-                <i class="bx bx-user"></i> Your Name
-                <span class="required-star">*</span>
-              </label>
-              <div class="input-wrapper">
-                <input type="text" name="name" class="form-control" id="name" 
-                  placeholder="Enter your full name" required 
-                  [(ngModel)]="formData.name"
-                  [class.is-invalid]="!!fieldErrors.name"
-                  (input)="clearFieldError('name')" />
-                <span class="input-icon">
-                  <i class="bx bx-check-circle valid-icon"></i>
-                  <i class="bx bx-x-circle invalid-icon"></i>
-                </span>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">
+                  <i class="bx bx-user"></i> Your Name
+                  <span class="required-star">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" name="name" class="form-control" id="name" 
+                    placeholder="Enter your full name" required 
+                    [(ngModel)]="formData.name"
+                    [class.is-invalid]="!!fieldErrors.name"
+                    (input)="clearFieldError('name')" />
+                  <span class="input-icon">
+                    <i class="bx bx-check-circle valid-icon"></i>
+                    <i class="bx bx-x-circle invalid-icon"></i>
+                  </span>
+                </div>
+                <div class="validate" [class.show]="fieldErrors.name">{{ fieldErrors.name }}</div>
               </div>
-              <div class="validate" [class.show]="fieldErrors.name">{{ fieldErrors.name }}</div>
-            </div>
-            <div class="form-group">
-              <label for="subject">
-                <i class="bx bx-message-square-detail"></i> Subject
-                <span class="required-star">*</span>
-              </label>
-              <div class="input-wrapper">
-                <input type="text" class="form-control" name="subject" id="subject"
-                  placeholder="What's this about?" required 
-                  [(ngModel)]="formData.subject"
-                  [class.is-invalid]="!!fieldErrors.subject"
-                  (input)="clearFieldError('subject')" />
-                <span class="input-icon">
-                  <i class="bx bx-check-circle valid-icon"></i>
-                  <i class="bx bx-x-circle invalid-icon"></i>
-                </span>
+              <div class="form-group">
+                <label for="subject">
+                  <i class="bx bx-message-square-detail"></i> Subject
+                  <span class="required-star">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input type="text" class="form-control" name="subject" id="subject"
+                    placeholder="What's this about?" required 
+                    [(ngModel)]="formData.subject"
+                    [class.is-invalid]="!!fieldErrors.subject"
+                    (input)="clearFieldError('subject')" />
+                  <span class="input-icon">
+                    <i class="bx bx-check-circle valid-icon"></i>
+                    <i class="bx bx-x-circle invalid-icon"></i>
+                  </span>
+                </div>
+                <div class="validate" [class.show]="fieldErrors.subject">{{ fieldErrors.subject }}</div>
               </div>
-              <div class="validate" [class.show]="fieldErrors.subject">{{ fieldErrors.subject }}</div>
             </div>
             <div class="form-group">
               <label for="message">

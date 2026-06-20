@@ -1,40 +1,58 @@
 <!-- ======= Hero / Home ======= -->
-<section id="hero" class="hero-main">
-  <div class="hero-container">
-    <div class="hero-layout">
-
-      <div class="hero-content">
-        <h1>Hazem Alyaari</h1>
-        <p class="hero-tagline mb-0">
-          I'm <span class="typed" data-typed-items="From Yemen,Software Developer, Engineering Student"></span>
+<section id="hero" class="hero">
+  <div class="hero__in">
+    <div class="hero__grid">
+      <div class="hero__main">
+        <p class="avail hero-li hero-li--1">
+          <span class="avail__dot" aria-hidden="true"></span>
+          Open to opportunities
         </p>
 
-        <div class="hero-chips">
-          <span class="hero-chip"><i class="bx bx-code-alt"></i> Full-Stack</span>
-          <span class="hero-chip"><i class="bx bxl-angular"></i> Angular</span>
-          <span class="hero-chip"><i class="bx bx-server"></i> .NET</span>
+        <h1 class="hero__name hero-li hero-li--1" #heroName>Hazem Alyaari</h1>
+
+        <p class="hero__role hero-li hero-li--2">
+          I build full-stack applications that scale —
+          <span class="hero__role-hl">and ship.</span>
+        </p>
+
+        <p class="hero__tagline hero-li hero-li--2">
+          I'm <span class="typed"></span>
+        </p>
+
+        <div class="hero__chips hero-li hero-li--3">
+          <span class="hero__chip"><i class="bx bx-code-alt"></i> Full-Stack</span>
+          <span class="hero__chip"><i class="bx bxl-angular"></i> Angular</span>
+          <span class="hero__chip"><i class="bx bx-server"></i> .NET</span>
+        </div>
+
+        <div class="hero__cta hero-li hero-li--4">
+          <a href="#about" class="btn-portfolio btn-portfolio--primary scrollto">
+            Skills &amp; expertise <span class="arw">↓</span>
+          </a>
+          <a href="#services" class="btn-portfolio btn-portfolio--ghost scrollto">
+            View projects <span class="arw">→</span>
+          </a>
         </div>
       </div>
 
-      <div id="hero-about" class="hero-about-block">
-        <p class="hero-intro">
-          I am an undergraduate student at the Sana'a University. I enjoy problem-solving and coding. I love
-          solving questions on LeetCode and doing competitive programming. I am well-versed in Computer Science
-          fundamentals, Operating Systems, Database Management Systems, and Computer Networks and I also have a
-          keen interest in High-Level System Design. I have built a few projects on Web Development and Desktop.
-          I always strive to bring 100% to the work I do.
+      <aside class="hero__panel hero-li hero-li--3">
+        <span class="hero__panel-label">About me</span>
+        <p class="hero__bio">
+          Undergraduate at Sana'a University with a passion for problem-solving, competitive programming, and
+          system design. Experienced across web and desktop development with strong foundations in OS, DBMS, and
+          computer networks.
         </p>
-        <blockquote class="hero-objective">
-          <i class="bx bx-target-lock"></i>
-          Looking for an opportunity to work in a challenging position combining my skills in Software
-          Engineering, which provides professional development, interesting experiences and personal growth.
+        <blockquote class="hero__objective">
+          <i class="bx bx-target-lock" aria-hidden="true"></i>
+          Looking for a challenging role that combines software engineering, professional growth, and meaningful impact.
         </blockquote>
-        <div class="hero-actions">
-          <a href="#about" class="scrollto hero-cta-primary">Skills &amp; expertise <i class="bx bx-down-arrow-alt"></i></a>
-          <a href="#services" class="scrollto hero-cta-secondary">View projects <i class="bx bx-right-arrow-alt"></i></a>
-        </div>
-      </div>
-
+      </aside>
     </div>
   </div>
+
+  <a class="hero__cue hero-li hero-li--6 scrollto" href="#about" aria-label="Scroll to about section">
+    <i class="bx bx-mouse hero__cue-icon"></i>
+    <span>Scroll</span>
+    <i class="hero__cue-line"></i>
+  </a>
 </section>
